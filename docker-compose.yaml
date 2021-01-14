@@ -1,0 +1,48 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data
+    networks:
+      - mongo
+    env_file:
+      - .env
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - mongo
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  app:
+    container_name: app
+    build:
+      context: .
+    image: q
+    restart: always
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    networks:
+      - mongo
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+networks:
+  mongo:
+    name: mongo
