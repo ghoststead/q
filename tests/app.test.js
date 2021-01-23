@@ -30,7 +30,7 @@ test('app', async () => {
             event: 'test',
             foo: 'baz'
         });
-    expect(res.statusCode).toBe(200);
+    expect(res.statusCode).toBe(201);
     expect(res.body._id).toBeTruthy();
 });
 

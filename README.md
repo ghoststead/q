@@ -12,6 +12,11 @@ doctl registry login
 ```
 
 
+### Push to DO docker registry
+```shell
+docker push registry.digitalocean.com/ghoststead/q
+```
+
 
 ## Mongo
 
@@ -31,4 +36,16 @@ db.createUser({
 ### Test
 ```shell
 curl -X POST --header "Content-Type: application/json" --data '{"event": "test"}' http://localhost:3000/events
+```
+
+### Shell examples
+
+Show last 10 events
+```shell
+db.events.find().sort({_id:-1}).limit(10);
+```
+
+Delete all test events:
+```shell
+db.events.deleteMany({"event": "test"})
 ```

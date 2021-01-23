@@ -32,9 +32,7 @@ services:
 
   app:
     container_name: app
-    build:
-      context: .
-    image: registry.digitalocean.com/ghoststead/q@sha256:9883e430b0b4e99024f2d39dacd0337858cf49dd3546afb11b07586fa989e0be
+    image: registry.digitalocean.com/ghoststead/q
     restart: always
     stdin_open: true
     tty: true

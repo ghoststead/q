@@ -10,6 +10,7 @@ function create(req, res) {
             return res.status(400).send('');
         }
 
+        res.status(201);
         res.setHeader('Content-Type', 'application/json');
         res.json(result.ops[0]);
     });

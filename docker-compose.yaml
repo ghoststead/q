@@ -30,7 +30,7 @@ services:
     container_name: app
     build:
       context: .
-    image: q
+    image: registry.digitalocean.com/ghoststead/q
     restart: always
     stdin_open: true
     tty: true
